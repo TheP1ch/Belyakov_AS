@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 struct Pipe{
@@ -9,49 +9,109 @@ struct Pipe{
     bool repair_or_not;
 };
 
-void add_int_and_check(int &value){
+struct CS{
+    int id;
+    string name;
+    int count_workshops;
+    int count_ready_workshops;
+};
+
+bool checK_int_double(){
+    if (cin.peek() != '\n' || !cin){
+        cout << "YOUR NUMBER IS WRONG" << endl;
+        cin.clear();
+        cin.ignore(15000, '\n');
+        cout << "Enter a new number: ";
+        return false;
+    }else{
+        return true;
+    }
+}
+
+bool check_cs_name(string &name){
+    if (size(name) != 0 && size(name) <= 10){
+        for(int i = 0; i <= size(name); ++i){
+            if (name[i] != ' '){
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+void get_cs_name(string &name_cs){
+    cout << "Enter the name of cs, which have length in range (1 - 10)";
+    bool check;
     while(true){
-        cin >> value;
-        if ((cin.peek() != '\n') || (!cin)){
-            cout << "YOUR NUMBER IS WRONG" << endl;
-            cin.clear();
-            cin.ignore(15000, '\n');
-            cout << "Enter a new number: ";
-        }else
+        getline(cin,name_cs);
+        check = check_cs_name(name_cs);
+        if (check){
             break;
+        }
     }
 }
 
 void add_pipe_diametr(int &diameter){
     cout << "Enter the diameter in millimeters in the range{114 - 1420}: ";
-    add_int_and_check(diameter);
-    if ((diameter >= 1420) || (diameter <= 110)){
-        cout << "YOUR NUMBER IS OUT OF RANGE" << endl;
-        cout << "Enter a new number: ";
-        add_int_and_check(diameter);
+    bool check;
+    while(true){
+        cin >> diameter;
+        check = checK_int_double();
+        if (check && (diameter >= 1420 || diameter <= 110)){
+            cout << "YOUR NUMBER IS OUT OF RANGE" << endl;
+            cout << "Enter a new number: ";
+        } else if(check) {
+            break;
+        }
     }
 }
 
-void add_and_check_double(double &value){
+
+
+
+
+void add_count_workshops(int &count_workshops){
+    cout << "Enter the count of workshops in range (1 - 20): ";
+    bool check;
     while(true){
-        cin >> value;
-        if ((cin.peek() != '\n') || (!cin)){
-            cout << "YOUR NUMBER IS WRONG" << endl;
-            cin.clear();
-            cin.ignore(15000, '\n');
+        cin >> count_workshops;
+        check = checK_int_double();
+        if (check && (count_workshops >= 20 || count_workshops <= 1)){
+            cout << "YOUR NUMBER IS OUT OF RANGE" << endl;
             cout << "Enter a new number: ";
-        }else
+        } else if(check) {
             break;
+        }
+    }
+}
+
+void add_count_ready_workshops(int &count_ready_workshops, int count_workshops){
+    cout << "Enter the count of ready's workshops in range (0 - n) (n - is how many workshops you have): ";
+    bool check;
+    while(true){
+        cin >> count_ready_workshops;
+        check = checK_int_double();
+        if (check && (count_ready_workshops >= count_workshops || count_ready_workshops <= 0)){
+            cout << "YOUR NUMBER IS OUT OF RANGE" << endl;
+            cout << "Enter a new number: ";
+        } else if(check) {
+            break;
+        }
     }
 }
 
 void add_pipe_length(double &length){
     cout << "Enter the length in meters in the range{10 - 100}: ";
-    add_and_check_double(length);
-    if ((length >= 100) || (length <= 10)){
-        cout << "YOUR NUMBER IS OUT OF RANGE" << endl;
-        cout << "Enter a new number: ";
-        add_and_check_double(length);
+    bool check;
+    while(true){
+        cin >> length;
+        check = checK_int_double();
+        if (check && (length >= 100 || length <= 10)){
+            cout << "YOUR NUMBER IS OUT OF RANGE" << endl;
+            cout << "Enter a new number: ";
+        } else if(check) {
+            break;
+        }
     }
 }
 
@@ -69,8 +129,6 @@ void true_false(bool &repair){
     }
 }
 
-
-
 void Menu_out(){
     cout << "1. Добавить трубу\n"
             "2. Добавить КС\n"
@@ -87,25 +145,62 @@ void Clear_console(){
 }
 
 void out_pipe_info(Pipe &new_pipe){
-    cout << endl << new_pipe.id << endl << new_pipe.diameter << endl << new_pipe.length << endl;
+    cout << endl << new_pipe.id << endl << new_pipe.diameter << endl << new_pipe.length <<endl;
+    if(new_pipe.repair_or_not){
+        cout << "not in repair";
+    } else{
+        cout << "in repair";
+    }
+}
+
+void out_cs_info(CS &new_cs){
+    cout << endl << new_cs.id << endl << new_cs.name << endl << new_cs.count_workshops << endl << new_cs.count_ready_workshops<< endl;
 }
 
 int main(){
     Pipe new_pipe{};
+    CS new_cs{};
     new_pipe.id = 1;
+    new_cs.id = 1;
     Menu_out();
     char menu_pointer = cin.get();
     switch (menu_pointer){
         case '1':
-            cout << string(10, '\n');
+            Clear_console();
             add_pipe_diametr(new_pipe.diameter);
             Clear_console();
             add_pipe_length(new_pipe.length);
             Clear_console();
-            out_pipe_info(new_pipe);
+            cout << "in Repair or not in repair? ";
+            true_false(new_pipe.repair_or_not);
+            Clear_console();
+            Menu_out();
             break;
         case '2':
-            cout << string(4, '\n');
+            Clear_console();
+            get_cs_name(new_cs.name);
+            Clear_console();
+            add_count_workshops(new_cs.count_workshops);
+            Clear_console();
+            add_count_ready_workshops(new_cs.count_ready_workshops, new_cs.count_workshops);
+            Clear_console();
+            Menu_out();
+            break;
+        case '3':
+            cout << "Pipe info:" << endl;
+            out_pipe_info(new_pipe);
+            cout << "CS info:" << endl;
+            out_cs_info(new_cs);
+            break;
+        case '4':
+            break;
+        case '5':
+            break;
+        case '6':
+            break;
+        case '7':
+            break;
+        case '8':
             break;
         default:
             break;
