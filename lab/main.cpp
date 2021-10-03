@@ -55,6 +55,21 @@ void add_pipe_length(double &length){
     }
 }
 
+void true_false(bool &repair){
+    char tfpointer;
+    while(true){
+        tfpointer = cin.get();
+        if (tfpointer == 'y'){
+            repair = true;
+            break;
+        } else if (tfpointer == 'n'){
+            repair = false;
+            break;
+        }
+    }
+}
+
+
 
 void Menu_out(){
     cout << "1. Добавить трубу\n"
@@ -79,7 +94,7 @@ int main(){
     Pipe new_pipe{};
     new_pipe.id = 1;
     Menu_out();
-    int menu_pointer = cin.get();
+    char menu_pointer = cin.get();
     switch (menu_pointer){
         case '1':
             cout << string(10, '\n');
