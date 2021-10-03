@@ -193,14 +193,18 @@ int main(){
             out_cs_info(new_cs);
             break;
         case '4':
+            cout << "Enter pipe repair or not: ";
+            true_false(new_pipe.repair_or_not);
             break;
         case '5':
+            add_count_ready_workshops(new_cs.count_ready_workshops, new_cs.count_workshops);
             break;
         case '6':
             break;
         case '7':
             break;
         case '8':
+            return 0;
             break;
         default:
             break;
