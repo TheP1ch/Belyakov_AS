@@ -5,23 +5,56 @@ using namespace std;
 struct Pipe{
     int id;
     double length;
-    int  diametr;
+    int  diameter;
     bool repair_or_not;
 };
 
-void checkint(Pipe &pipe){
-
+void add_int_and_check(int &value){
+    while(true){
+        cin >> value;
+        if ((cin.peek() != '\n') || (!cin)){
+            cout << "YOUR NUMBER IS WRONG" << endl;
+            cin.clear();
+            cin.ignore(15000, '\n');
+            cout << "Enter a new number: ";
+        }else
+            break;
+    }
 }
 
-void checkdouble(){}
-// diametr 114 - 1420
-// length
-void add_atribute_pipe(Pipe new_pipe){
-    cout << "Add Pipe diametr" << endl;
-    cin >> new_pipe.diametr;
-    cout <<"Add Pipe length" << endl;
-    cin >> new_pipe.length;
+void add_pipe_diametr(int &diameter){
+    cout << "Enter the diameter in millimeters in the range{114 - 1420}: ";
+    add_int_and_check(diameter);
+    if ((diameter >= 1420) || (diameter <= 110)){
+        cout << "YOUR NUMBER IS OUT OF RANGE" << endl;
+        cout << "Enter a new number: ";
+        add_int_and_check(diameter);
+    }
 }
+
+void add_and_check_double(double &value){
+    while(true){
+        cin >> value;
+        if ((cin.peek() != '\n') || (!cin)){
+            cout << "YOUR NUMBER IS WRONG" << endl;
+            cin.clear();
+            cin.ignore(15000, '\n');
+            cout << "Enter a new number: ";
+        }else
+            break;
+    }
+}
+
+void add_pipe_length(double &length){
+    cout << "Enter the length in meters in the range{10 - 100}: ";
+    add_and_check_double(length);
+    if ((length >= 100) || (length <= 10)){
+        cout << "YOUR NUMBER IS OUT OF RANGE" << endl;
+        cout << "Enter a new number: ";
+        add_and_check_double(length);
+    }
+}
+
 
 void Menu_out(){
     cout << "1. Добавить трубу\n"
@@ -39,7 +72,7 @@ void Clear_console(){
 }
 
 void out_pipe_info(Pipe &new_pipe){
-    cout << endl << new_pipe.id << endl << new_pipe.diametr << endl << new_pipe.length << endl;
+    cout << endl << new_pipe.id << endl << new_pipe.diameter << endl << new_pipe.length << endl;
 }
 
 int main(){
@@ -50,7 +83,11 @@ int main(){
     switch (menu_pointer){
         case '1':
             cout << string(10, '\n');
-
+            add_pipe_diametr(new_pipe.diameter);
+            Clear_console();
+            add_pipe_length(new_pipe.length);
+            Clear_console();
+            out_pipe_info(new_pipe);
             break;
         case '2':
             cout << string(4, '\n');
