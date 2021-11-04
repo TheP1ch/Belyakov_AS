@@ -82,7 +82,7 @@ void true_false(bool &repair){
             repair = false;
             break;
         }else
-            cout << "You push the wrong button, please try again: ";
+            cout << "You push the wrong button, please try again:  ";
     }
 }
 
