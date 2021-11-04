@@ -19,7 +19,7 @@ struct CS{
     double efficiency;
 };
 
-bool checK_int_double(){
+bool check_int_double(){
     if (cin.peek() != '\n' || !cin){
         cout << "YOUR NUMBER IS WRONG" << endl;
         cin.clear();
@@ -58,7 +58,7 @@ void add_attributes(T &attribute, int left_border,int right_border){
     bool check;
     while(true){
         cin >> attribute;
-        check = checK_int_double();
+        check = check_int_double();
         if (check && (attribute > right_border || attribute < left_border)){
             cout << "YOUR NUMBER IS OUT OF RANGE" << endl;
             cout << "Enter a new number: ";
@@ -72,15 +72,17 @@ void add_attributes(T &attribute, int left_border,int right_border){
 void true_false(bool &repair){
     char tfpointer;
     while(true){
+        cin >> ws;
         tfpointer = cin.get();
-        cin.ignore(1000, '\n');
+        cin.ignore(10000, '\n');
         if (tfpointer == 'y'){
             repair = true;
             break;
         } else if (tfpointer == 'n'){
             repair = false;
             break;
-        }
+        }else
+            cout << "You push the wrong button, please try again: ";
     }
 }
 
@@ -211,11 +213,10 @@ void in_from_file(Pipe &pipe, CS &cs, ifstream &in){
 int main() {
     Pipe new_pipe{};
     CS new_cs{};
-    char out_to_menu;
     char menu_pointer;
     Menu_out();
     while (true){
-        cin>>ws;
+        cin >> ws;
         menu_pointer = cin.get();
         cin.clear();
         cin.ignore(10000, '\n');
@@ -301,9 +302,11 @@ int main() {
                 ifstream in("/Users/evgenijbelakov/desktop/github/Belyakov_AS/lab/Data.txt");
                 if (!in.is_open()) {
                     cout << "File didn't find" << endl;
+                    return_to_menu();
                     break;
                 } else if (in.eof() == 1) {
                     cout << "File is empty" << endl;
+                    return_to_menu();
                     break;
                 }
                 in_from_file(new_pipe, new_cs, in);
