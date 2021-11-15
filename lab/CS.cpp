@@ -36,3 +36,18 @@ void CS::change_workshops(){
     std::cout << "Enter the count of ready's workshops in range (0 - n) (n - is how many workshops you have):";
     verification::add_attributes(count_ready_workshops, 0, count_workshops);
 }
+
+std::ostream& operator << (std::ostream& out, const CS &cs){
+    out << std::endl << "CS id: " << cs.get_id() << std::endl << "CS name: " << cs.name << std::endl
+         << "CS count workshops: " << cs.count_workshops
+         << std::endl << "CS count ready workshops: " << cs.count_ready_workshops<< std::endl;
+    return out;
+}
+
+std::ofstream& operator << (std::ofstream& f_out, const CS &cs){
+    f_out << cs.get_id() << std::endl << cs.name << std::endl << cs.count_workshops
+        << std::endl << cs.count_ready_workshops << std::endl
+        << cs.efficiency;
+    f_out.close();
+    return f_out;
+};

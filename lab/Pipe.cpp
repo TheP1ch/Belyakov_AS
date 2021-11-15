@@ -3,7 +3,6 @@
 //
 
 #include "Pipe.h"
-#include <iostream>
 #include "verification.h"
 
 void Clear_console();
@@ -36,4 +35,24 @@ void Pipe::switch_repair() {
     }
     std::cout << "Enter pipe repair or not (Push 'y'(not in repair) or 'n'(in repair) button): ";
     verification::true_false(repair_or_not);
+}
+
+std::ostream& operator << (std::ostream& out, const Pipe &pipe){
+    out << std::endl << "Pipe_and_cs id: " << pipe.get_id() << std::endl
+         << "Pipe_and_cs diameter: " << pipe.diameter << std::endl
+         << "Pipe_and_cs length: " << pipe.length <<std::endl;
+    if(pipe.repair_or_not){
+        out << "not in repair" << std::endl;
+    } else{
+        out << "in repair" << std::endl;
+    }
+    return out;
+}
+
+std::ofstream& operator << (std::ofstream& f_out, const Pipe &pipe){
+    f_out << pipe.get_id() << std::endl << pipe.diameter << std::endl
+        << pipe.length << std::endl
+        << pipe.repair_or_not << std::endl;
+    f_out << ' ' << std::endl;
+    return f_out;
 }

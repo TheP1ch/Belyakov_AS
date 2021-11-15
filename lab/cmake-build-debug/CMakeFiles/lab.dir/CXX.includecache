@@ -6,9 +6,35 @@
 
 #IncludeRegexTransform: 
 
-/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/verification.cpp
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.h
+iostream
+-
+fstream
+-
+string
+-
+
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.h
+string
+-
+fstream
+-
+iostream
+-
+
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/main.cpp
+iostream
+-
+string
+-
+fstream
+-
 verification.h
 /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/verification.h
+Pipe.h
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.h
+CS.h
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.h
 
 /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/verification.h
 iostream

@@ -5,6 +5,8 @@
 #ifndef LAB_CS_H
 #define LAB_CS_H
 #pragma once
+#include <iostream>
+#include <fstream>
 #include <string>
 
 class CS {
@@ -19,6 +21,8 @@ public:
     CS();
     int get_id() const;
     void change_workshops();
+    friend std::ostream& operator << (std::ostream& out, const CS &cs);
+    friend std::ofstream& operator << (std::ofstream& f_out, const CS &cs);
 };
 
 

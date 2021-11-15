@@ -22,7 +22,7 @@ void Clear_console(){
     cout << string(20, '\n');
 }
 
-void out_pipe_info(const Pipe &pipe){
+/*void out_pipe_info(const Pipe &pipe){
     cout << endl << "Pipe_and_cs id: " << pipe.get_id() << endl
     << "Pipe_and_cs diameter: " << pipe.diameter << endl
     << "Pipe_and_cs length: " << pipe.length <<endl;
@@ -31,16 +31,17 @@ void out_pipe_info(const Pipe &pipe){
     } else{
         cout << "in repair" << endl;
     }
-}
+}*/
 
-void out_cs_info(const CS &cs){
+/*void out_cs_info(const CS &cs){
     cout << endl << "CS id: " << cs.get_id() << endl << "CS name: " << cs.name << endl
     << "CS count workshops: " << cs.count_workshops
     << endl << "CS count ready workshops: " << cs.count_ready_workshops<< endl;
-}
+}*/
 
 void return_to_menu(){
     cout << "for return to menu push '1' button ";
+    cin >> ws;
     while (true) {
         if (cin.get() == '1') {
             break;
@@ -51,7 +52,7 @@ void return_to_menu(){
     }
 }
 
-void out_to_file(const Pipe &pipe, const CS &cs, ofstream &out){
+/*void out_to_file(const Pipe &pipe, const CS &cs, ofstream &out){
     out << pipe.get_id() << endl << pipe.diameter << endl
         << pipe.length << endl
         << pipe.repair_or_not << endl;
@@ -62,7 +63,7 @@ void out_to_file(const Pipe &pipe, const CS &cs, ofstream &out){
     out.close();
     cout << "Data is upload to file" << endl;
     return_to_menu();
-}
+}*/
 
 void in_from_file(Pipe &pipe, CS &cs, ifstream &in){
     while (in.peek() != ' ') {
@@ -109,11 +110,11 @@ int main() {
                 Clear_console();
                 if (new_pipe.length != 0) {
                     cout << "Pipe_and_cs info:";
-                    out_pipe_info(new_pipe);
+                    cout << new_pipe;
                 }
                 if (new_cs.count_workshops != 0) {
                     cout << "\nCS info:";
-                    out_cs_info(new_cs);
+                    cout << new_cs;
                 }
                 if (new_cs.count_workshops == 0 && new_pipe.length == 0) {
                     Clear_console();
@@ -158,20 +159,24 @@ int main() {
                     break;
                 }
                 ofstream out;
-                out.open("/Users/evgenijbelakov/desktop/github/Belyakov_AS/lab/Data.txt");
+                out.open("/Users/evgenijbelakov/desktop/github/Belyakov_AS/lab/Dat.txt");
                 if (!out.is_open()) {
-                    cout << "File didn't find";
+                    cout << "File didn't find ";
                     return_to_menu();
+                    Clear_console();
+                    Menu_out();
                     break;
                 }
-                out_to_file(new_pipe, new_cs, out);
+                out << new_pipe;
+                out << new_cs;
+                cout << "Data is upload to file" << endl;
                 Clear_console();
                 Menu_out();
                 break;
             }
             case '7': {
                 Clear_console();
-                ifstream in("/Users/evgenijbelakov/desktop/github/Belyakov_AS/lab/Data.txt");
+                ifstream in("/Users/evgenijbelakov/desktop/github/Belyakov_AS/lab/Dat.txt");
                 if (!in.is_open()) {
                     cout << "File didn't find" << endl;
                     return_to_menu();

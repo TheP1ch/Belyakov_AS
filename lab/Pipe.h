@@ -6,6 +6,7 @@
 #define LAB_PIPE_H
 #pragma once
 #include <string>
+#include <fstream>
 #include <iostream>
 
 
@@ -21,7 +22,8 @@ public:
     Pipe();
     void switch_repair();
     int get_id() const;
-    friend std::ostream operator << ();
+    friend std::ostream& operator << (std::ostream& out, const Pipe &pipe);
+    friend std::ofstream& operator << (std::ofstream& f_out, const Pipe &pipe);
 };
 
 
