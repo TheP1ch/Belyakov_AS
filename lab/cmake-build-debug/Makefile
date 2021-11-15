@@ -129,6 +129,54 @@ lab/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/build
 .PHONY : lab/fast
 
+CS.o: CS.cpp.o
+.PHONY : CS.o
+
+# target to build an object file
+CS.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/CS.cpp.o
+.PHONY : CS.cpp.o
+
+CS.i: CS.cpp.i
+.PHONY : CS.i
+
+# target to preprocess a source file
+CS.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/CS.cpp.i
+.PHONY : CS.cpp.i
+
+CS.s: CS.cpp.s
+.PHONY : CS.s
+
+# target to generate assembly for a file
+CS.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/CS.cpp.s
+.PHONY : CS.cpp.s
+
+Pipe.o: Pipe.cpp.o
+.PHONY : Pipe.o
+
+# target to build an object file
+Pipe.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/Pipe.cpp.o
+.PHONY : Pipe.cpp.o
+
+Pipe.i: Pipe.cpp.i
+.PHONY : Pipe.i
+
+# target to preprocess a source file
+Pipe.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/Pipe.cpp.i
+.PHONY : Pipe.cpp.i
+
+Pipe.s: Pipe.cpp.s
+.PHONY : Pipe.s
+
+# target to generate assembly for a file
+Pipe.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/Pipe.cpp.s
+.PHONY : Pipe.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -153,6 +201,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+verification.o: verification.cpp.o
+.PHONY : verification.o
+
+# target to build an object file
+verification.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/verification.cpp.o
+.PHONY : verification.cpp.o
+
+verification.i: verification.cpp.i
+.PHONY : verification.i
+
+# target to preprocess a source file
+verification.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/verification.cpp.i
+.PHONY : verification.cpp.i
+
+verification.s: verification.cpp.s
+.PHONY : verification.s
+
+# target to generate assembly for a file
+verification.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/verification.cpp.s
+.PHONY : verification.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,9 +234,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... lab"
+	@echo "... CS.o"
+	@echo "... CS.i"
+	@echo "... CS.s"
+	@echo "... Pipe.o"
+	@echo "... Pipe.i"
+	@echo "... Pipe.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... verification.o"
+	@echo "... verification.i"
+	@echo "... verification.s"
 .PHONY : help
 
 

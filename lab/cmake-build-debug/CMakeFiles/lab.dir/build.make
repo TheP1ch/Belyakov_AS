@@ -79,17 +79,62 @@ CMakeFiles/lab.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab.dir/main.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/main.cpp -o CMakeFiles/lab.dir/main.cpp.s
 
+CMakeFiles/lab.dir/Pipe.cpp.o: CMakeFiles/lab.dir/flags.make
+CMakeFiles/lab.dir/Pipe.cpp.o: ../Pipe.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lab.dir/Pipe.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab.dir/Pipe.cpp.o -c /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.cpp
+
+CMakeFiles/lab.dir/Pipe.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab.dir/Pipe.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.cpp > CMakeFiles/lab.dir/Pipe.cpp.i
+
+CMakeFiles/lab.dir/Pipe.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab.dir/Pipe.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.cpp -o CMakeFiles/lab.dir/Pipe.cpp.s
+
+CMakeFiles/lab.dir/verification.cpp.o: CMakeFiles/lab.dir/flags.make
+CMakeFiles/lab.dir/verification.cpp.o: ../verification.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lab.dir/verification.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab.dir/verification.cpp.o -c /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/verification.cpp
+
+CMakeFiles/lab.dir/verification.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab.dir/verification.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/verification.cpp > CMakeFiles/lab.dir/verification.cpp.i
+
+CMakeFiles/lab.dir/verification.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab.dir/verification.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/verification.cpp -o CMakeFiles/lab.dir/verification.cpp.s
+
+CMakeFiles/lab.dir/CS.cpp.o: CMakeFiles/lab.dir/flags.make
+CMakeFiles/lab.dir/CS.cpp.o: ../CS.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/lab.dir/CS.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab.dir/CS.cpp.o -c /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.cpp
+
+CMakeFiles/lab.dir/CS.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab.dir/CS.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.cpp > CMakeFiles/lab.dir/CS.cpp.i
+
+CMakeFiles/lab.dir/CS.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab.dir/CS.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.cpp -o CMakeFiles/lab.dir/CS.cpp.s
+
 # Object files for target lab
 lab_OBJECTS = \
-"CMakeFiles/lab.dir/main.cpp.o"
+"CMakeFiles/lab.dir/main.cpp.o" \
+"CMakeFiles/lab.dir/Pipe.cpp.o" \
+"CMakeFiles/lab.dir/verification.cpp.o" \
+"CMakeFiles/lab.dir/CS.cpp.o"
 
 # External object files for target lab
 lab_EXTERNAL_OBJECTS =
 
 lab: CMakeFiles/lab.dir/main.cpp.o
+lab: CMakeFiles/lab.dir/Pipe.cpp.o
+lab: CMakeFiles/lab.dir/verification.cpp.o
+lab: CMakeFiles/lab.dir/CS.cpp.o
 lab: CMakeFiles/lab.dir/build.make
 lab: CMakeFiles/lab.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable lab"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable lab"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lab.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

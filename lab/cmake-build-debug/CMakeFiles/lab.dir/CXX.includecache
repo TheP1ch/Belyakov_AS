@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/main.cpp
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/verification.cpp
+verification.h
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/verification.h
+
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/verification.h
 iostream
--
-string
--
-fstream
 -
 

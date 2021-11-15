@@ -78,7 +78,25 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.cpp">
+			<Option target="lab"/>
+		</Unit>
+		<Unit filename="/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.h">
+			<Option target="lab"/>
+		</Unit>
+		<Unit filename="/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.cpp">
+			<Option target="lab"/>
+		</Unit>
+		<Unit filename="/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.h">
+			<Option target="lab"/>
+		</Unit>
 		<Unit filename="/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/main.cpp">
+			<Option target="lab"/>
+		</Unit>
+		<Unit filename="/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/verification.cpp">
+			<Option target="lab"/>
+		</Unit>
+		<Unit filename="/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/verification.h">
 			<Option target="lab"/>
 		</Unit>
 		<Unit filename="/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CMakeLists.txt">

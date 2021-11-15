@@ -1,5 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/lab.dir/CS.cpp.o"
+  "CMakeFiles/lab.dir/Pipe.cpp.o"
   "CMakeFiles/lab.dir/main.cpp.o"
+  "CMakeFiles/lab.dir/verification.cpp.o"
   "lab"
   "lab.pdb"
 )
