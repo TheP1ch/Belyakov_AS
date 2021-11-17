@@ -46,10 +46,9 @@ std::ostream& operator << (std::ostream& out, const CS &cs){
 }
 
 std::ofstream& operator << (std::ofstream& f_out, const CS &cs){
-    f_out << cs.name << std::endl << cs.count_workshops
+    f_out << cs.get_id() << std::endl << cs.name << std::endl << cs.count_workshops
         << std::endl << cs.count_ready_workshops << std::endl
-        << cs.efficiency;
-    f_out.close();
+        << cs.efficiency << std::endl;
     return f_out;
 }
 
@@ -61,11 +60,5 @@ std::ifstream& operator >> (std::ifstream& f_in, CS &cs){
         f_in >> cs.efficiency;
         f_in.ignore(1000, '\n');
     }
-    f_in.close();
     return f_in;
 }
-
-
-/*
-<< pipe.get_id() << std::endl
- << std::endl << cs.get_id() */

@@ -51,10 +51,9 @@ std::ostream& operator << (std::ostream& out, const Pipe &pipe){
 }
 
 std::ofstream& operator << (std::ofstream& f_out, const Pipe &pipe){
-    f_out << pipe.diameter << std::endl
+    f_out << pipe.get_id() << std::endl << pipe.diameter << std::endl
         << pipe.length << std::endl;
     f_out << pipe.repair_or_not << std::endl;
-    f_out << ' ' << std::endl;
     return f_out;
 }
 

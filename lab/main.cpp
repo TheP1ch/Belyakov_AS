@@ -1,6 +1,4 @@
 #include <iostream>
-#include <string>
-#include "verification.h"
 #include "Pipe.h"
 #include "CS.h"
 #include "consolef.h"
@@ -9,8 +7,8 @@
 using namespace std;
 
 int main() {
-    CS new_cs;
-    Pipe new_pipe;
+    unordered_map<int, Pipe> pipes;
+    unordered_map<int, CS> compressors;
     char menu_pointer;
     Console_func::Menu_out();
     while (true){
@@ -20,26 +18,35 @@ int main() {
         cin.ignore(10000, '\n');
         switch (menu_pointer) {
             case '1': {
+                Pipe new_pipe;
+                pipes.insert({new_pipe.get_id(), new_pipe});
                 Console_func::Clear_console();
                 Console_func::Menu_out();
                 break;
             }
             case '2': {
+                CS new_cs;
+                compressors.insert({new_cs.get_id(), new_cs});
                 Console_func::Clear_console();
                 Console_func::Menu_out();
                 break;
             }
             case '3': {
                 Console_func::Clear_console();
-                if (new_pipe.length != 0) {
-                    cout << "Pipe_and_cs info:";
-                    cout << new_pipe;
+                if (!pipes.empty()) {
+                    cout << "Pipe info:";
+                    for (auto item : pipes){
+                        cout << item.second;
+                    }
+
                 }
-                if (new_cs.count_workshops != 0) {
+                if (!compressors.empty()) {
                     cout << "\nCS info:";
-                    cout << new_cs;
+                    for (auto item : compressors){
+                        cout << item.second;
+                    }
                 }
-                if (new_cs.count_workshops == 0 && new_pipe.length == 0) {
+                if (pipes.empty() && compressors.empty()) {
                     Console_func::Clear_console();
                     cout << "You push wrong point in menu because you don't have pipe or CS\n\n";
                     Console_func::Menu_out();
@@ -52,50 +59,40 @@ int main() {
             }
             case '4': {
                 Console_func::Clear_console();
-                if (new_pipe.length == 0){
+                if (pipes.empty()){
                     cout <<  "You push wrong point in menu because you don't have pipe\n\n";
                     Console_func::Menu_out();
                     break;
                 }
-                new_pipe.switch_repair();
+                //new_pipe.switch_repair();
                 Console_func::Clear_console();
                 Console_func::Menu_out();
                 break;
             }
             case '5': {
                 Console_func::Clear_console();
-                if (new_cs.count_workshops == 0){
+                if (compressors.empty()){
                     cout << "You push wrong point in menu because you don't have CS\n\n";
                     Console_func::Menu_out();
                     break;
                 }
-                new_cs.change_workshops();
+                //new_cs.change_workshops();
                 Console_func::Clear_console();
                 Console_func::Menu_out();
                 break;
             }
             case '6': {
-                if (new_cs.count_workshops == 0 || new_pipe.length == 0) {
+                if (compressors.empty() && pipes.empty()) {
                     Console_func::Clear_console();
-                    cout << "You push wrong point in menu because you don't have pipe and CS\n\n";
+                    cout << "You push wrong point in menu because you don't have pipe or CS\n\n";
                     Console_func::Menu_out();
                     break;
                 }
-                ofstream out;
-                out.open("/Users/evgenijbelakov/desktop/github2/Belyakov_AS/lab/Data.txt");
-                if (!out.is_open()) {
-                    cout << "File didn't find ";
-                    Console_func::return_to_menu();
-                    Console_func::Clear_console();
-                    Console_func::Menu_out();
-                    break;
-                }
-                out << new_pipe;
-                out << new_cs;
-                cout << "Data is upload to file" << endl;
-                Console_func::return_to_menu();
+                string file_name;
                 Console_func::Clear_console();
-                Console_func::Menu_out();
+                cout << "Enter the file name: ";
+                getline(cin, file_name);
+                Console_func::Out_to_File(pipes, compressors, file_name);
                 break;
             }
             case '7': {
@@ -110,9 +107,13 @@ int main() {
                     Console_func::return_to_menu();
                     break;
                 }
-                in >> new_pipe;
-                in >> new_cs;
+                string check;
+                in >> check;
+                if (check == "Pipe"){
+                }
+                //in >> new_cs;
                 cout << "You download data from file" << endl;
+                in.close();
                 Console_func::return_to_menu();
                 Console_func::Clear_console();
                 Console_func::Menu_out();
