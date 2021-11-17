@@ -20,8 +20,10 @@ public:
     int  diameter;
     bool repair_or_not;
     Pipe();
-    void switch_repair();
+    explicit Pipe(std::ifstream& in);
     int get_id() const;
+    void setID(int ID);
+    void switch_repair();
     friend std::ostream& operator << (std::ostream& out, const Pipe &pipe);
     friend std::ofstream& operator << (std::ofstream& f_out, const Pipe &pipe);
     friend std::ifstream& operator >> (std::ifstream& f_in, Pipe &pipe);

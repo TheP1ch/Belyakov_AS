@@ -53,8 +53,6 @@ int main() {
                     break;
                 }
                 Console_func::return_to_menu();
-                Console_func::Clear_console();
-                Console_func::Menu_out();
                 break;
             }
             case '4': {
@@ -97,26 +95,10 @@ int main() {
             }
             case '7': {
                 Console_func::Clear_console();
-                ifstream in("/Users/evgenijbelakov/desktop/github2/Belyakov_AS/lab/Data.txt");
-                if (!in.is_open()) {
-                    cout << "File didn't find" << endl;
-                    Console_func::return_to_menu();
-                    break;
-                } else if (in.eof()) {
-                    cout << "File is empty" << endl;
-                    Console_func::return_to_menu();
-                    break;
-                }
-                string check;
-                in >> check;
-                if (check == "Pipe"){
-                }
-                //in >> new_cs;
-                cout << "You download data from file" << endl;
-                in.close();
-                Console_func::return_to_menu();
-                Console_func::Clear_console();
-                Console_func::Menu_out();
+                string file_name;
+                cout << "Enter the file name: ";
+                getline(cin, file_name);
+                Console_func::In_from_file(pipes, compressors, file_name);
                 break;
             }
             case '0': {

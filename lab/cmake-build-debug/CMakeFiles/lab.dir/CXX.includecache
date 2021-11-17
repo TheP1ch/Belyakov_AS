@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.cpp
-CS.h
-/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.h
-iostream
--
-verification.h
-/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/verification.h
-consolef.h
-/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/consolef.h
-
 /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.h
 iostream
 -
@@ -40,10 +30,6 @@ fstream
 iostream
 -
 
-/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/consolef.cpp
-consolef.h
-/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/consolef.h
-
 /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/consolef.h
 iostream
 -
@@ -53,18 +39,10 @@ string
 -
 unordered_map
 -
-
-/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/main.cpp
-iostream
--
 Pipe.h
 /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.h
 CS.h
 /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.h
-consolef.h
-/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/consolef.h
-unordered_map
--
 
 /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/verification.h
 iostream

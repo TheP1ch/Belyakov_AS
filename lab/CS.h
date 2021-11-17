@@ -19,7 +19,9 @@ public:
     int count_ready_workshops;
     double efficiency;
     CS();
+    explicit CS(std::ifstream& in);
     int get_id() const;
+    void setID(int ID);
     void change_workshops();
     friend std::ostream& operator << (std::ostream& out, const CS &cs);
     friend std::ofstream& operator << (std::ofstream& f_out, const CS &cs);

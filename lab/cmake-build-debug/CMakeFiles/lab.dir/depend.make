@@ -4,14 +4,18 @@
 CMakeFiles/lab.dir/CS.cpp.o: \
  ../CS.cpp \
  ../CS.h \
+ ../Pipe.h \
  ../consolef.h \
  ../verification.h
 CMakeFiles/lab.dir/Pipe.cpp.o: \
+ ../CS.h \
  ../Pipe.cpp \
  ../Pipe.h \
  ../consolef.h \
  ../verification.h
 CMakeFiles/lab.dir/consolef.cpp.o: \
+ ../CS.h \
+ ../Pipe.h \
  ../consolef.cpp \
  ../consolef.h
 CMakeFiles/lab.dir/main.cpp.o: \
