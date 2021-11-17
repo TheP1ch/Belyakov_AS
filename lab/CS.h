@@ -23,6 +23,7 @@ public:
     void change_workshops();
     friend std::ostream& operator << (std::ostream& out, const CS &cs);
     friend std::ofstream& operator << (std::ofstream& f_out, const CS &cs);
+    friend std::ifstream& operator >> (std::ifstream& f_in, CS& cs);
 };
 
 

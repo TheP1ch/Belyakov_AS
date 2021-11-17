@@ -177,6 +177,30 @@ Pipe.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/Pipe.cpp.s
 .PHONY : Pipe.cpp.s
 
+consolef.o: consolef.cpp.o
+.PHONY : consolef.o
+
+# target to build an object file
+consolef.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/consolef.cpp.o
+.PHONY : consolef.cpp.o
+
+consolef.i: consolef.cpp.i
+.PHONY : consolef.i
+
+# target to preprocess a source file
+consolef.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/consolef.cpp.i
+.PHONY : consolef.cpp.i
+
+consolef.s: consolef.cpp.s
+.PHONY : consolef.s
+
+# target to generate assembly for a file
+consolef.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/consolef.cpp.s
+.PHONY : consolef.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -240,6 +264,9 @@ help:
 	@echo "... Pipe.o"
 	@echo "... Pipe.i"
 	@echo "... Pipe.s"
+	@echo "... consolef.o"
+	@echo "... consolef.i"
+	@echo "... consolef.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
