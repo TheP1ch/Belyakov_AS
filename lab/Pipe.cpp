@@ -34,25 +34,30 @@ void Pipe::setID(int ID) {
 }
 
 void Pipe::switch_repair() {
-    std::cout << "Your pipe ";
-    if (repair_or_not) {
+    std::cout << "Pipe id " << get_id() << " ";
+    if (!repair_or_not) {
         std::cout << "not in repair" << std::endl;
     } else {
         std::cout << "in repair" << std::endl;
     }
-    std::cout << "Enter pipe repair or not (Push 'y'(not in repair) or 'n'(in repair) button): ";
+    std::cout << "Push 'y'(in repair) or 'n'(not in repair) button to select the pipe repair parametr: ";
     verification::true_false(repair_or_not);
 }
 
+void Pipe::PIPE_Clear(std::unordered_map<int, Pipe> &pipes) {
+    pipes.clear();
+    Max_ID = 0;
+}
+
 std::ostream& operator << (std::ostream& out, const Pipe &pipe){
-    out << std::endl << "Pipe id: " << pipe.get_id() << std::endl
-        << "Pipe's name: " << pipe.name << std::endl
-        << "Pipe diameter: " << pipe.diameter << std::endl
-        << "Pipe length: " << pipe.length <<std::endl;
-    if(pipe.repair_or_not){
-        out << "not in repair" << std::endl;
+    out << std:: setw(8) << pipe.get_id() << std:: setw(20)
+        << pipe.name << std::setw(20)
+        << pipe.diameter << std::setw(20)
+        << pipe.length;
+    if(!pipe.repair_or_not){
+        out << std::setw(20) << "not in repair" << std::endl;
     } else{
-        out << "in repair" << std::endl;
+        out << std::setw(20) << "in repair" << std::endl;
     }
     return out;
 }
@@ -65,10 +70,9 @@ std::ofstream& operator << (std::ofstream& f_out, const Pipe &pipe){
 }
 
 std::ifstream& operator >> (std::ifstream& f_in, Pipe &pipe){
-    int x, buf = 0;
+    int x;
     f_in >> x >> std::ws;
-    if(buf <= x){
-        buf = x;
+    if(Pipe::Max_ID <= x){
         Pipe::Max_ID = x;
     }
     pipe.setID(x);

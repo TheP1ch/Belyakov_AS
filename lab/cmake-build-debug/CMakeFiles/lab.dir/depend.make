@@ -22,7 +22,8 @@ CMakeFiles/lab.dir/main.cpp.o: \
  ../CS.h \
  ../Pipe.h \
  ../consolef.h \
- ../main.cpp
+ ../main.cpp \
+ ../verification.h
 CMakeFiles/lab.dir/verification.cpp.o: \
  ../verification.cpp \
  ../verification.h

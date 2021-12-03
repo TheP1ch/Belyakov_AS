@@ -14,12 +14,29 @@ void Console_func::Menu_out() {
             "0. Выход\n";
 }
 
+void Console_func::Pipe_table() {
+    std::cout << "Pipe info:" << std::endl;
+    std::cout << "Pipe id:" << std::setw(20) << "Pipe's name:" << std::setw(20) << "Pipe diameter:" <<
+         std::setw(20) << "Pipe length:" << std::setw(20) << "repair or not:" << std::endl;
+}
+void Console_func::CS_table(){
+    std::cout << "CS info:" << std::endl;
+    std::cout << "CS id:" << std::setw(17) << "Cs name:" << std::setw(27) << "CS count workshops:" <<
+         std::setw(32) << "CS count ready workshops:" << std::setw(20) << "CS efficiency:" << std::endl;
+}
+
+void Console_func::Edit_menu() {
+    std::cout << "1. " << "Edit all pipes in table" << std::endl
+              << "2. " << "Edit certain pipes" << std::endl
+              << "0. " << "Exit to menu press" << std::endl;
+}
+
 void Console_func::Clear_console(){
     std::cout << std::string(20, '\n');
 }
 
 void Console_func::return_to_menu(){
-    std::cout << "for return to menu push '1' button ";
+    std::cout << "for return to menu push '1' button: ";
     std::cin >> std::ws;
     while (true) {
         if (std::cin.get() == '1') {
@@ -28,7 +45,7 @@ void Console_func::return_to_menu(){
             break;
         }else{
             Clear_console();
-            std::cout << "for return to menu push '1' button, you push wrong button ";
+            std::cout << "for return to menu push '1' button, you push wrong button: ";
         }
     }
 }
@@ -73,7 +90,7 @@ void Console_func::In_from_file(std::unordered_map<int, Pipe> &pipes, std::unord
     std::string check;
     in >> check;
     if (check == "Pipe"){
-        pipes.clear();
+        Pipe::PIPE_Clear(pipes);
         int count_pipe;
         in >> count_pipe;
         for (int i = 0; i < count_pipe; ++i){
@@ -86,7 +103,7 @@ void Console_func::In_from_file(std::unordered_map<int, Pipe> &pipes, std::unord
         }
     }
     if (check == "CS"){
-        compressors.clear();
+        CS::CS_Clear(compressors);
         int count_cs;
         in >> count_cs;
         for (int i = 0; i < count_cs; ++i){

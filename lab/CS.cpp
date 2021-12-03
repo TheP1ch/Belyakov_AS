@@ -41,11 +41,17 @@ void CS::change_workshops(){
     verification::add_attributes(count_ready_workshops, 0, count_workshops);
 }
 
+void CS::CS_Clear(std::unordered_map<int, CS> &compressors) {
+    compressors.clear();
+    Max_ID = 0;
+}
+
 std::ostream& operator << (std::ostream& out, const CS &cs){
-    out << std::endl << "CS id: " << cs.get_id() << std::endl << "CS name: " << cs.name << std::endl
-         << "CS count workshops: " << cs.count_workshops
-         << std::endl << "CS count ready workshops: " << cs.count_ready_workshops
-         << std::endl << "CS efficiency: " <<cs.efficiency << std::endl;
+    out << std::setw(6) << cs.get_id() << std:: setw(17)
+        << cs.name << std::setw(27)
+        << cs.count_workshops << std::setw(32)
+        << cs.count_ready_workshops <<std::setw(20)
+        << cs.efficiency << std::endl;
     return out;
 }
 
@@ -76,4 +82,5 @@ CS::CS(std::ifstream& in){
     count_workshops = 0;
     count_ready_workshops = 0;
     efficiency = 0;
+    Max_ID = 0;
 }

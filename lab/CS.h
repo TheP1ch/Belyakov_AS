@@ -8,6 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <unordered_map>
 
 class CS {
 private:
@@ -23,6 +24,7 @@ public:
     int get_id() const;
     void setID(int ID);
     void change_workshops();
+    static void CS_Clear(std::unordered_map<int, CS> &compressors);
     friend std::ostream& operator << (std::ostream& out, const CS &cs);
     friend std::ofstream& operator << (std::ofstream& f_out, const CS &cs);
     friend std::ifstream& operator >> (std::ifstream& f_in, CS& cs);

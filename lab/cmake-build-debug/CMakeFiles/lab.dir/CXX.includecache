@@ -13,14 +13,8 @@ fstream
 -
 string
 -
-
-/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.cpp
-Pipe.h
-/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.h
-verification.h
-/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/verification.h
-consolef.h
-/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/consolef.h
+unordered_map
+-
 
 /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.h
 string
@@ -28,6 +22,8 @@ string
 fstream
 -
 iostream
+-
+unordered_map
 -
 
 /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/consolef.h
@@ -43,6 +39,20 @@ Pipe.h
 /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.h
 CS.h
 /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.h
+
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/main.cpp
+Pipe.h
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.h
+CS.h
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.h
+vector
+-
+consolef.h
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/consolef.h
+verification.h
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/verification.h
+unordered_set
+-
 
 /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/verification.h
 iostream
