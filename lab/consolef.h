@@ -26,3 +26,4 @@ namespace Console_func{
 }
 
 #endif //LAB_CONSOLEF_H
+

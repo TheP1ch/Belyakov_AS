@@ -1,12 +1,102 @@
 //
 // Created by Евгений Беляков on 04.12.2021.
 //
-
 #ifndef LAB_FILTER_H
 #define LAB_FILTER_H
 #pragma once
 #include "consolef.h"
+#include <vector>
+#include <unordered_set>
+#include "verification.h"
 
+bool filter_true_false(const Pipe& pipe, bool repair);
 
+template <typename T>
+bool Filter_by_name(const T &cs_or_pipe, std::string name){
+    if(name == cs_or_pipe.name){
+        return true;
+    }else {
+        return false;
+    }
+}
+
+bool Filter_by_percentworkshops(const CS &cs, double left_border_percent);
+
+template <typename T, typename T_param>
+using filter_repair = bool(*)(const T& cs_or_pipe, T_param param);
+
+template <typename T, typename T_param>
+void Filter_id_true_false(const std::unordered_map<int, T> &MAP,filter_repair<T, T_param> filter, std::vector<int> &vec_id, T_param param){
+    for (const auto &item : MAP){
+        if (filter(item.second, param)){
+            vec_id.push_back(item.second.get_id());
+        }
+    }
+}
+
+void switch_Pipe_true_false(std::unordered_map<int, Pipe> &pipes, const std::vector<int> &id_vec);
+
+template <typename T>
+void Delete_CS_OR_PIPE(std::unordered_map<int, T> &cs_or_pipe, const std::vector<int> &id_vec){
+    if (!id_vec.empty()){
+        for (const auto  &id : id_vec){
+            std::cout << cs_or_pipe.at(id);
+        }
+        char menu_pointer2;
+        Console_func::Delete_menu();
+        std::cin >> std::ws;
+        menu_pointer2 = std::cin.get();
+        std::cin.clear();
+        std::cin.ignore(10000, '\n');
+        switch(menu_pointer2){
+            case '1': {
+                for(auto id : id_vec){
+                    cs_or_pipe.erase(cs_or_pipe.find(id));
+                }
+                Console_func::return_to_menu();
+                break;
+            }
+            case '2': {
+                std::unordered_set<int> table_pos;
+                std::cout << "Enter the serial number in the table which you want to delete: ";
+                while(true){
+                    int x;
+                    verification::add_attributes(x, 0, id_vec.size());
+                    table_pos.insert(id_vec[x-1]);
+                    std::cout << "if you want to continue press '1', otherwise press'0': ";
+                    char menu_pointer3;
+                    while(true){
+                        std::cin >> std::ws;
+                        menu_pointer3 = std::cin.get();
+                        std::cin.clear();
+                        std::cin.ignore(10000, '\n');
+                        if (menu_pointer3 == '1'){
+                            break;
+                        }else if(menu_pointer3 == '0'){
+                            break;
+                        }
+                    }
+                    if(menu_pointer3 == '0'){
+                        break;
+                    }
+                    std::cout << "Enter the serial number in the table: ";
+                }
+                for(auto it_id = table_pos.begin(); it_id != table_pos.end(); ++it_id){
+                    cs_or_pipe.erase(cs_or_pipe.find(*it_id));
+                }
+                Console_func::return_to_menu();
+                break;
+            }
+            case '0': {
+                Console_func::Clear_console();
+                Console_func::Menu_out();
+                break;
+            }
+            default:{
+                break;
+            }
+        }
+    }
+}
 
 #endif //LAB_FILTER_H

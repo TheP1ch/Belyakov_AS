@@ -7,6 +7,13 @@ CMakeFiles/lab.dir/CS.cpp.o: \
  ../Pipe.h \
  ../consolef.h \
  ../verification.h
+CMakeFiles/lab.dir/Filter.cpp.o: \
+ ../CS.h \
+ ../Filter.cpp \
+ ../Filter.h \
+ ../Pipe.h \
+ ../consolef.h \
+ ../verification.h
 CMakeFiles/lab.dir/Pipe.cpp.o: \
  ../CS.h \
  ../Pipe.cpp \
@@ -20,6 +27,7 @@ CMakeFiles/lab.dir/consolef.cpp.o: \
  ../consolef.h
 CMakeFiles/lab.dir/main.cpp.o: \
  ../CS.h \
+ ../Filter.h \
  ../Pipe.h \
  ../consolef.h \
  ../main.cpp \
