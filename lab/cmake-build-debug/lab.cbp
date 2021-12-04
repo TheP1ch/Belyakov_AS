@@ -84,6 +84,12 @@
 		<Unit filename="/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.h">
 			<Option target="lab"/>
 		</Unit>
+		<Unit filename="/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Filter.cpp">
+			<Option target="lab"/>
+		</Unit>
+		<Unit filename="/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Filter.h">
+			<Option target="lab"/>
+		</Unit>
 		<Unit filename="/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.cpp">
 			<Option target="lab"/>
 		</Unit>

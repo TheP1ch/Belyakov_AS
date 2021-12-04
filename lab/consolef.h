@@ -21,6 +21,8 @@ namespace Console_func{
     void Pipe_table();
     void CS_table();
     void Edit_menu();
+    void Delete_menu();
+    void Filter_Pipe_menu();
 }
 
 #endif //LAB_CONSOLEF_H

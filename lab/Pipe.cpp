@@ -33,17 +33,6 @@ void Pipe::setID(int ID) {
     this->id = ID;
 }
 
-void Pipe::switch_repair() {
-    std::cout << "Pipe id " << get_id() << " ";
-    if (!repair_or_not) {
-        std::cout << "not in repair" << std::endl;
-    } else {
-        std::cout << "in repair" << std::endl;
-    }
-    std::cout << "Push 'y'(in repair) or 'n'(not in repair) button to select the pipe repair parametr: ";
-    verification::true_false(repair_or_not);
-}
-
 void Pipe::PIPE_Clear(std::unordered_map<int, Pipe> &pipes) {
     pipes.clear();
     Max_ID = 0;

@@ -153,6 +153,30 @@ CS.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/CS.cpp.s
 .PHONY : CS.cpp.s
 
+Filter.o: Filter.cpp.o
+.PHONY : Filter.o
+
+# target to build an object file
+Filter.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/Filter.cpp.o
+.PHONY : Filter.cpp.o
+
+Filter.i: Filter.cpp.i
+.PHONY : Filter.i
+
+# target to preprocess a source file
+Filter.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/Filter.cpp.i
+.PHONY : Filter.cpp.i
+
+Filter.s: Filter.cpp.s
+.PHONY : Filter.s
+
+# target to generate assembly for a file
+Filter.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/Filter.cpp.s
+.PHONY : Filter.cpp.s
+
 Pipe.o: Pipe.cpp.o
 .PHONY : Pipe.o
 
@@ -261,6 +285,9 @@ help:
 	@echo "... CS.o"
 	@echo "... CS.i"
 	@echo "... CS.s"
+	@echo "... Filter.o"
+	@echo "... Filter.i"
+	@echo "... Filter.s"
 	@echo "... Pipe.o"
 	@echo "... Pipe.i"
 	@echo "... Pipe.s"

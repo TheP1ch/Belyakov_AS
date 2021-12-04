@@ -24,7 +24,6 @@ public:
     explicit Pipe(std::ifstream& in);
     int get_id() const;
     void setID(int ID);
-    void switch_repair();
     static void PIPE_Clear(std::unordered_map<int, Pipe> &pipes);
     friend std::ostream& operator << (std::ostream& out, const Pipe &pipe);
     friend std::ofstream& operator << (std::ofstream& f_out, const Pipe &pipe);

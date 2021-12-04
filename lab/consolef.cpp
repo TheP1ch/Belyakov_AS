@@ -11,6 +11,7 @@ void Console_func::Menu_out() {
             "5. Редактировать КС\n"
             "6. Сохранить\n"
             "7. Загрузить\n"
+            "8. Удаление труб\n"
             "0. Выход\n";
 }
 
@@ -30,6 +31,19 @@ void Console_func::Edit_menu() {
               << "2. " << "Edit certain pipes" << std::endl
               << "0. " << "Exit to menu press" << std::endl;
 }
+
+void Console_func::Delete_menu() {
+    std::cout << "1. " << "Delete all pipes in table" << std::endl
+              << "2. " << "Delete certain pipes" << std::endl
+              << "0. " << "Exit to menu press" << std::endl;
+}
+
+void Console_func::Filter_Pipe_menu() {
+    std::cout << "1. " << "Filter by repair" << std::endl
+              << "2. " << "Filter by name" << std::endl
+              << "0. " << "Exit to menu press" << std::endl;
+}
+
 
 void Console_func::Clear_console(){
     std::cout << std::string(20, '\n');
