@@ -20,9 +20,10 @@ namespace Console_func{
     void In_from_file(std::unordered_map<int, Pipe> &pipes, std::unordered_map<int, CS> &compressors, std::string& File_name);
     void Pipe_table();
     void CS_table();
-    void Edit_menu();
+    void Edit_menu(const std::string &str);
     void Delete_menu();
     void Filter_Pipe_menu();
+    void Filter_CS_menu();
 }
 
 #endif //LAB_CONSOLEF_H

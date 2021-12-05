@@ -36,7 +36,7 @@ void CS::setID(int ID) {
 }
 
 void CS::change_workshops(){
-    std::cout << "Your CS had " << count_ready_workshops << " ready workshops" << std::endl;
+    std::cout << "Your CS with id " << id << " has " << count_ready_workshops << " ready workshops" << std::endl;
     std::cout << "Enter the count of ready's workshops in range (0 - n) (n - is how many workshops you have):";
     verification::add_attributes(count_ready_workshops, 0, count_workshops);
 }
@@ -82,5 +82,4 @@ CS::CS(std::ifstream& in){
     count_workshops = 0;
     count_ready_workshops = 0;
     efficiency = 0;
-    Max_ID = 0;
 }

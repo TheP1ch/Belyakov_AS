@@ -9,36 +9,36 @@
 #include <unordered_set>
 #include "verification.h"
 
-bool filter_true_false(const Pipe& pipe, bool repair);
+namespace Filter{
+    bool filter_true_false(const Pipe& pipe, bool repair);
 
-template <typename T>
-bool Filter_by_name(const T &cs_or_pipe, std::string name){
-    if(name == cs_or_pipe.name){
-        return true;
-    }else {
-        return false;
-    }
-}
-
-bool Filter_by_percentworkshops(const CS &cs, double left_border_percent);
-
-template <typename T, typename T_param>
-using filter_repair = bool(*)(const T& cs_or_pipe, T_param param);
-
-template <typename T, typename T_param>
-void Filter_id_true_false(const std::unordered_map<int, T> &MAP,filter_repair<T, T_param> filter, std::vector<int> &vec_id, T_param param){
-    for (const auto &item : MAP){
-        if (filter(item.second, param)){
-            vec_id.push_back(item.second.get_id());
+    template <typename T>
+    bool Filter_by_name(const T &cs_or_pipe, std::string name){
+        if(name == cs_or_pipe.name){
+            return true;
+        }else {
+            return false;
         }
     }
-}
 
-void switch_Pipe_true_false(std::unordered_map<int, Pipe> &pipes, const std::vector<int> &id_vec);
+    bool Filter_by_percentworkshops(const CS &cs, double left_border_percent);
 
-template <typename T>
-void Delete_CS_OR_PIPE(std::unordered_map<int, T> &cs_or_pipe, const std::vector<int> &id_vec){
-    if (!id_vec.empty()){
+    template <typename T, typename T_param>
+    using filter_repair = bool(*)(const T& cs_or_pipe, T_param param);
+
+    template <typename T, typename T_param>
+    void Filter_id(const std::unordered_map<int, T> &MAP, filter_repair<T, T_param> filter, std::vector<int> &vec_id, T_param param){
+        for (const auto &item : MAP){
+            if (filter(item.second, param)){
+                vec_id.push_back(item.second.get_id());
+            }
+        }
+    }
+
+    void switch_Pipe_true_false(std::unordered_map<int, Pipe> &pipes, const std::vector<int> &id_vec);
+
+    template <typename T>
+    void Delete_CS_OR_PIPE(std::unordered_map<int, T> &cs_or_pipe, const std::vector<int> &id_vec){
         for (const auto  &id : id_vec){
             std::cout << cs_or_pipe.at(id);
         }
@@ -97,6 +97,12 @@ void Delete_CS_OR_PIPE(std::unordered_map<int, T> &cs_or_pipe, const std::vector
             }
         }
     }
+
+    void Choose_Pipe_filter(const std::unordered_map<int, Pipe> &pipes, std::vector<int> &id_vec);
+
+    void Choose_CS_filter(const std::unordered_map<int, CS> &cs, std::vector<int> &id_vec);
+
+    void switch_CS_workshops(std::unordered_map<int, CS> &compressors, const std::vector<int> &id_vec);
 }
 
 #endif //LAB_FILTER_H

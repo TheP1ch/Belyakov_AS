@@ -12,6 +12,7 @@ void Console_func::Menu_out() {
             "6. Сохранить\n"
             "7. Загрузить\n"
             "8. Удаление труб\n"
+            "9. Удаление компрессорных станций\n"
             "0. Выход\n";
 }
 
@@ -26,9 +27,9 @@ void Console_func::CS_table(){
          std::setw(32) << "CS count ready workshops:" << std::setw(20) << "CS efficiency:" << std::endl;
 }
 
-void Console_func::Edit_menu() {
-    std::cout << "1. " << "Edit all pipes in table" << std::endl
-              << "2. " << "Edit certain pipes" << std::endl
+void Console_func::Edit_menu(const std::string &str) {
+    std::cout << "1. " << "Edit all " << str << " in table" << std::endl
+              << "2. " << "Edit certain " << str << std::endl
               << "0. " << "Exit to menu press" << std::endl;
 }
 
@@ -40,6 +41,12 @@ void Console_func::Delete_menu() {
 
 void Console_func::Filter_Pipe_menu() {
     std::cout << "1. " << "Filter by repair" << std::endl
+              << "2. " << "Filter by name" << std::endl
+              << "0. " << "Exit to menu press" << std::endl;
+}
+
+void Console_func::Filter_CS_menu() {
+    std::cout << "1. " << "Filter by percent workshops" << std::endl
               << "2. " << "Filter by name" << std::endl
               << "0. " << "Exit to menu press" << std::endl;
 }
@@ -77,6 +84,7 @@ void Console_func::Out_to_File(std::unordered_map<int, Pipe> &pipes, std::unorde
             out << item.second;
         }
     }
+
     if (!compressors.empty()){
         out << "CS" << std::endl << compressors.size() << std::endl;
         for (const auto& item : compressors){

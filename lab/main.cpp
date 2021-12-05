@@ -3,7 +3,6 @@
 #include "consolef.h"
 #include "verification.h"
 #include <vector>
-#include <unordered_set>
 #include "Filter.h"
 
 using namespace std;
@@ -65,56 +64,9 @@ int main() {
                     Console_func::Menu_out();
                     break;
                 }
-                char menu_pointer2;
-                Console_func::Filter_Pipe_menu();
-                cin >> ws;
-                menu_pointer2 = cin.get();
-                cin.clear();
-                cin.ignore(10000, '\n');
-                switch(menu_pointer2) {
-                    case '1': {
-                        Console_func::Clear_console();
-                        vector<int> id_vec;
-                        bool repair;
-                        std::cout
-                                << "Choose which pipes you want in repair or not (if in repair push 'y', if not in repair push 'n': ";
-                        verification::true_false(repair);
-                        Filter_id_true_false(pipes, filter_true_false, id_vec, repair);
-
-                        if (id_vec.empty()) {
-                            if (repair) {
-                                std::cout << "You dont have Pipe in repair";
-                            } else {
-                                std::cout << "You dont have Pipe not in repair";
-                            }
-                            std::cout << std::endl;
-                            Console_func::return_to_menu();
-                            break;
-                        }
-                        switch_Pipe_true_false(pipes, id_vec);
-                        break;
-                    }
-                    case '2': {
-                        Console_func::Clear_console();
-                        vector<int> id_vec;
-                        string name;
-                        std::cout << "Enter Pipe name: ";
-                        verification::check_string(name, 10);
-                        Filter_id_true_false(pipes, Filter_by_name,id_vec, name);
-                        switch_Pipe_true_false(pipes, id_vec);
-                        if (id_vec.empty()) {
-                            std::cout << "You dont have Pipe with such name" <<std::endl;
-                            Console_func::return_to_menu();
-                        }
-                        break;
-                    }
-                    case '0': {
-                        Console_func::Clear_console();
-                        Console_func::Menu_out();
-                        break;
-                    }
-                }
-
+                vector<int> vec_id;
+                Filter::Choose_Pipe_filter(pipes, vec_id);
+                Filter::switch_Pipe_true_false(pipes, vec_id);
                 break;
             }
             case '5': {
@@ -124,7 +76,9 @@ int main() {
                     Console_func::Menu_out();
                     break;
                 }
-                //new_cs.change_workshops();
+                vector<int> vec_id;
+                Filter::Choose_CS_filter(compressors, vec_id);
+                Filter::switch_CS_workshops(compressors, vec_id);
                 Console_func::Clear_console();
                 Console_func::Menu_out();
                 break;
@@ -158,58 +112,30 @@ int main() {
                     Console_func::Menu_out();
                     break;
                 }
-                char menu_pointer2;
-                Console_func::Filter_Pipe_menu();
-                cin >> ws;
-                menu_pointer2 = cin.get();
-                cin.clear();
-                cin.ignore(10000, '\n');
-                switch(menu_pointer2) {
-                    case '1': {
-                        Console_func::Clear_console();
-                        vector<int> id_vec;
-                        bool repair;
-                        std::cout
-                                << "Choose which pipes you want in repair or not (if in repair push 'y', if not in repair push 'n': ";
-                        verification::true_false(repair);
-                        Filter_id_true_false(pipes, filter_true_false, id_vec, repair);
-                        if (id_vec.empty()) {
-                            if (repair) {
-                                std::cout << "You dont have Pipe in repair";
-                            } else {
-                                std::cout << "You dont have Pipe not in repair";
-                            }
-                            std::cout << std::endl;
-                            Console_func::return_to_menu();
-                            break;
-                        }
-                        Console_func::Pipe_table();
-                        Delete_CS_OR_PIPE(pipes, id_vec);
-                        break;
-                    }
-                    case '2': {
-                        Console_func::Clear_console();
-                        vector<int> id_vec;
-                        string name;
-                        std::cout << "Enter Pipe name: ";
-                        verification::check_string(name, 10);
-                        Filter_id_true_false(pipes, Filter_by_name,id_vec, name);
-                        Delete_CS_OR_PIPE(pipes, id_vec);
-                        if (id_vec.empty()) {
-                            std::cout << "You dont have Pipe with such name" <<std::endl;
-                            Console_func::return_to_menu();
-                        }
-                        break;
-                    }
-                    case '0': {
-                        Console_func::Clear_console();
-                        Console_func::Menu_out();
-                        break;
-                    }
+                vector<int> vec_id;
+                Filter::Choose_Pipe_filter(pipes, vec_id);
+                if(!vec_id.empty()){
+                    Console_func::Pipe_table();
+                    Filter::Delete_CS_OR_PIPE(pipes, vec_id);
+                }
+
+                break;
+            }
+            case '9':{
+                Console_func::Clear_console();
+                if (compressors.empty()){
+                    cout <<  "You push wrong point in menu because you don't have compressors\n\n";
+                    Console_func::Menu_out();
+                    break;
+                }
+                vector<int> vec_id;
+                Filter::Choose_CS_filter(compressors, vec_id);
+                if(!vec_id.empty()){
+                    Console_func::CS_table();
+                    Filter::Delete_CS_OR_PIPE(compressors, vec_id);
                 }
                 break;
             }
-
             case '0': {
                 Console_func::Clear_console();
                 return 0;
