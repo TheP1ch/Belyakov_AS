@@ -5,8 +5,8 @@
 #include "verification.h"
 
 
-bool verification::check_int_double(){
-    if (std::cin.peek() != '\n' || !std::cin){
+bool verification::check_int_double(){ //is valid
+    if (!std::cin || std::cin.peek() != '\n'){
         std::cout << "YOUR NUMBER IS WRONG" << std::endl;
         std::cin.clear();
         std::cin.ignore(15000, '\n');
@@ -17,7 +17,7 @@ bool verification::check_int_double(){
     }
 }
 
-void verification::check_string(std::string &string_cin, int max_symbols) {
+void verification::check_string(std::string &string_cin, int max_symbols) { //get string value
     while (true) {
         getline(std::cin >> std::ws, string_cin);
         string_cin.erase(string_cin.find_last_not_of(' ') + 1);

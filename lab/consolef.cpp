@@ -80,8 +80,8 @@ void Console_func::Out_to_File(std::unordered_map<int, Pipe> &pipes, std::unorde
     }
     if (!pipes.empty()){
         out << "Pipe" << std::endl << pipes.size() << std::endl;
-        for (const auto& item : pipes){
-            out << item.second;
+        for (const auto& [id,item] : pipes){
+            out << item;
         }
     }
 
@@ -96,6 +96,13 @@ void Console_func::Out_to_File(std::unordered_map<int, Pipe> &pipes, std::unorde
     Console_func::return_to_menu();
     Console_func::Clear_console();
     Console_func::Menu_out();
+}
+
+void Console_func::Choise_table_point(char &pointer) {
+    std::cin >> std::ws;
+    pointer = std::cin.get();
+    std::cin.clear();
+    std::cin.ignore(10000, '\n');
 }
 
 void Console_func::In_from_file(std::unordered_map<int, Pipe> &pipes, std::unordered_map<int, CS> &compressors,std::string &File_name){
@@ -116,7 +123,7 @@ void Console_func::In_from_file(std::unordered_map<int, Pipe> &pipes, std::unord
         int count_pipe;
         in >> count_pipe;
         for (int i = 0; i < count_pipe; ++i){
-            Pipe new_pipe(in);
+            Pipe new_pipe;
             in >> new_pipe;
             pipes.insert({new_pipe.get_id(), new_pipe});
         }
@@ -129,7 +136,7 @@ void Console_func::In_from_file(std::unordered_map<int, Pipe> &pipes, std::unord
         int count_cs;
         in >> count_cs;
         for (int i = 0; i < count_cs; ++i){
-            CS new_cs(in);
+            CS new_cs;
             in >> new_cs;
             compressors.insert({new_cs.get_id(), new_cs});
         }

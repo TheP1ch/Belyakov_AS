@@ -21,6 +21,7 @@ namespace Console_func{
     void Pipe_table();
     void CS_table();
     void Edit_menu(const std::string &str);
+    void Choise_table_point(char &pointer);
     void Delete_menu();
     void Filter_Pipe_menu();
     void Filter_CS_menu();

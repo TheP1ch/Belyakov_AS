@@ -20,11 +20,9 @@ public:
     std::string name;
     int  diameter;
     bool repair_or_not;
-    Pipe();
-    explicit Pipe(std::ifstream& in);
     int get_id() const;
-    void setID(int ID);
     static void PIPE_Clear(std::unordered_map<int, Pipe> &pipes);
+    void Add_pipe_attribute();
     friend std::ostream& operator << (std::ostream& out, const Pipe &pipe);
     friend std::ofstream& operator << (std::ofstream& f_out, const Pipe &pipe);
     friend std::ifstream& operator >> (std::ifstream& f_in, Pipe &pipe);

@@ -5,11 +5,7 @@
 #include "Filter.h"
 
 bool Filter::filter_true_false(const Pipe& pipe, bool repair){
-    if(repair == pipe.repair_or_not){
-        return true;
-    }else {
-        return false;
-    }
+    return repair == pipe.repair_or_not;
 }
 
 bool Filter::Filter_by_percentworkshops(const CS &cs, double left_border_percent){
@@ -24,15 +20,12 @@ bool Filter::Filter_by_percentworkshops(const CS &cs, double left_border_percent
 void Filter::switch_Pipe_true_false(std::unordered_map<int, Pipe> &pipes, const std::vector<int> &id_vec){
     if (!id_vec.empty()){
         Console_func::Pipe_table();
-        for (const auto  &id : id_vec){
+        for (auto  id : id_vec){
             std::cout << pipes.at(id);
         }
         char menu_pointer2;
         Console_func::Edit_menu("pipes");
-        std::cin >> std::ws;
-        menu_pointer2 = std::cin.get();
-        std::cin.clear();
-        std::cin.ignore(10000, '\n');
+        Console_func::Choise_table_point(menu_pointer2);
         switch(menu_pointer2){
             case '1': {
                 bool repair;
@@ -56,10 +49,7 @@ void Filter::switch_Pipe_true_false(std::unordered_map<int, Pipe> &pipes, const 
                     std::cout << "if you want to continue press '1', otherwise press'0': ";
                     char menu_pointer3;
                     while(true){
-                        std::cin >> std::ws;
-                        menu_pointer3 = std::cin.get();
-                        std::cin.clear();
-                        std::cin.ignore(10000, '\n');
+                        Console_func::Choise_table_point(menu_pointer3);
                         if (menu_pointer3 == '1'){
                             break;
                         }else if(menu_pointer3 == '0'){
@@ -73,8 +63,8 @@ void Filter::switch_Pipe_true_false(std::unordered_map<int, Pipe> &pipes, const 
                 }
                 std::cout << std::endl <<"Choose which pipes you want in repair or not (if in repair push 'y', if not in repair push 'n': ";
                 verification::true_false(repair);
-                for(auto it_id = table_pos.begin(); it_id != table_pos.end(); ++it_id){
-                    pipes[*it_id].repair_or_not = repair;
+                for(auto id : table_pos){
+                    pipes[id].repair_or_not = repair;
                 }
                 Console_func::return_to_menu();
                 break;
@@ -93,11 +83,8 @@ void Filter::switch_Pipe_true_false(std::unordered_map<int, Pipe> &pipes, const 
 
 void Filter::Choose_Pipe_filter(const std::unordered_map<int, Pipe> &pipes, std::vector<int> &id_vec){
     Console_func::Filter_Pipe_menu();
-    std::cin >> std::ws;
     char menu_pointer2;
-    menu_pointer2 = std::cin.get();
-    std::cin.clear();
-    std::cin.ignore(10000, '\n');
+    Console_func::Choise_table_point(menu_pointer2);
     switch(menu_pointer2) {
         case '1': {
             Console_func::Clear_console();
@@ -141,11 +128,8 @@ void Filter::Choose_Pipe_filter(const std::unordered_map<int, Pipe> &pipes, std:
 
 void Filter::Choose_CS_filter(const std::unordered_map<int, CS> &cs, std::vector<int> &id_vec){
     Console_func::Filter_CS_menu();
-    std::cin >> std::ws;
     char menu_pointer2;
-    menu_pointer2 = std::cin.get();
-    std::cin.clear();
-    std::cin.ignore(10000, '\n');
+    Console_func::Choise_table_point(menu_pointer2);
     switch(menu_pointer2) {
         case '1': {
             Console_func::Clear_console();
@@ -189,10 +173,7 @@ void Filter::switch_CS_workshops(std::unordered_map<int, CS> &compressors, const
         }
         char menu_pointer2;
         Console_func::Edit_menu("compressors");
-        std::cin >> std::ws;
-        menu_pointer2 = std::cin.get();
-        std::cin.clear();
-        std::cin.ignore(10000, '\n');
+        Console_func::Choise_table_point(menu_pointer2);
         switch (menu_pointer2) {
             case '1': {
                 for (const auto& cs_id : id_vec){

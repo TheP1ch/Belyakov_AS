@@ -11,22 +11,19 @@ int main() {
     unordered_map<int, Pipe> pipes;
     unordered_map<int, CS> compressors;
     char menu_pointer;
-    Console_func::Menu_out();
     while (true){
-        cin >> ws;
-        menu_pointer = cin.get();
-        cin.clear();
-        cin.ignore(10000, '\n');
+        Console_func::Menu_out();
+        Console_func::Choise_table_point(menu_pointer);
         switch (menu_pointer) {
             case '1': {
                 Pipe new_pipe;
+                new_pipe.Add_pipe_attribute();
                 pipes.insert({new_pipe.get_id(), new_pipe});
-                Console_func::Clear_console();
-                Console_func::Menu_out();
                 break;
             }
             case '2': {
                 CS new_cs;
+                new_cs.Add_CS_attribute();
                 compressors.insert({new_cs.get_id(), new_cs});
                 Console_func::Clear_console();
                 Console_func::Menu_out();
@@ -144,5 +141,6 @@ int main() {
                 break;
             }
         }
+    Console_func::Clear_console();
     }
 }

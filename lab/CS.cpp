@@ -9,18 +9,15 @@
 
 int CS::Max_ID = 0;
 
-CS::CS(){
+void CS::Add_CS_attribute() {
     Console_func::Clear_console();
     id = ++Max_ID;
     std::cout <<"Enter the name of cs, which have length in range (1 - 10):  ";
     verification::check_string(name, 10);
-    Console_func::Clear_console();
     std::cout << "Enter the count of workshops in range (1 - 20): ";
     verification::add_attributes(count_workshops, 1, 20);
-    Console_func::Clear_console();
     std::cout << "Enter the count of ready's workshops in range (0 - n) (n - is how many workshops you have): ";
     verification::add_attributes(count_ready_workshops, 0, count_workshops);
-    Console_func::Clear_console();
     std::cout << "Enter the efficiency in range (0 - 100%): ";
     verification::add_attributes(efficiency, 0, 100);
     Console_func::Clear_console();
@@ -29,10 +26,6 @@ CS::CS(){
 
 int CS::get_id() const{
     return id;
-}
-
-void CS::setID(int ID) {
-    this->id = ID;
 }
 
 void CS::change_workshops(){
@@ -68,18 +61,11 @@ std::ifstream& operator >> (std::ifstream& f_in, CS &cs){
     if(CS::Max_ID <= x){
         CS::Max_ID = x;
     }
-    cs.setID(x);
+    cs.id = x;
     getline(f_in, cs.name);
     f_in >> cs.count_workshops;
     f_in >> cs.count_ready_workshops;
     f_in >> cs.efficiency;
     f_in >> std::ws;
     return f_in;
-}
-
-CS::CS(std::ifstream& in){
-    name = "";
-    count_workshops = 0;
-    count_ready_workshops = 0;
-    efficiency = 0;
 }

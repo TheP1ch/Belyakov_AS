@@ -19,10 +19,8 @@ public:
     int count_workshops;
     int count_ready_workshops;
     double efficiency;
-    CS();
-    explicit CS(std::ifstream& in);
+    void Add_CS_attribute();
     int get_id() const;
-    void setID(int ID);
     void change_workshops();
     static void CS_Clear(std::unordered_map<int, CS> &compressors);
     friend std::ostream& operator << (std::ostream& out, const CS &cs);

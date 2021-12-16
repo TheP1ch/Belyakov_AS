@@ -44,10 +44,7 @@ namespace Filter{
         }
         char menu_pointer2;
         Console_func::Delete_menu();
-        std::cin >> std::ws;
-        menu_pointer2 = std::cin.get();
-        std::cin.clear();
-        std::cin.ignore(10000, '\n');
+        Console_func::Choise_table_point(menu_pointer2);
         switch(menu_pointer2){
             case '1': {
                 for(auto id : id_vec){
@@ -66,10 +63,7 @@ namespace Filter{
                     std::cout << "if you want to continue press '1', otherwise press'0': ";
                     char menu_pointer3;
                     while(true){
-                        std::cin >> std::ws;
-                        menu_pointer3 = std::cin.get();
-                        std::cin.clear();
-                        std::cin.ignore(10000, '\n');
+                        Console_func::Choise_table_point(menu_pointer3);
                         if (menu_pointer3 == '1'){
                             break;
                         }else if(menu_pointer3 == '0'){
@@ -81,8 +75,8 @@ namespace Filter{
                     }
                     std::cout << "Enter the serial number in the table: ";
                 }
-                for(auto it_id = table_pos.begin(); it_id != table_pos.end(); ++it_id){
-                    cs_or_pipe.erase(cs_or_pipe.find(*it_id));
+                for(auto id : table_pos){
+                    cs_or_pipe.erase(cs_or_pipe.find(id));
                 }
                 Console_func::return_to_menu();
                 break;
