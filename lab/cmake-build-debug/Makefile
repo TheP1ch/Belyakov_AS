@@ -177,6 +177,30 @@ Filter.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/Filter.cpp.s
 .PHONY : Filter.cpp.s
 
+GTS.o: GTS.cpp.o
+.PHONY : GTS.o
+
+# target to build an object file
+GTS.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/GTS.cpp.o
+.PHONY : GTS.cpp.o
+
+GTS.i: GTS.cpp.i
+.PHONY : GTS.i
+
+# target to preprocess a source file
+GTS.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/GTS.cpp.i
+.PHONY : GTS.cpp.i
+
+GTS.s: GTS.cpp.s
+.PHONY : GTS.s
+
+# target to generate assembly for a file
+GTS.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab.dir/build.make CMakeFiles/lab.dir/GTS.cpp.s
+.PHONY : GTS.cpp.s
+
 Pipe.o: Pipe.cpp.o
 .PHONY : Pipe.o
 
@@ -288,6 +312,9 @@ help:
 	@echo "... Filter.o"
 	@echo "... Filter.i"
 	@echo "... Filter.s"
+	@echo "... GTS.o"
+	@echo "... GTS.i"
+	@echo "... GTS.s"
 	@echo "... Pipe.o"
 	@echo "... Pipe.i"
 	@echo "... Pipe.s"

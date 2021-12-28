@@ -17,11 +17,11 @@ bool Filter::Filter_by_percentworkshops(const CS &cs, double left_border_percent
     }
 }
 
-void Filter::switch_Pipe_true_false(std::unordered_map<int, Pipe> &pipes, const std::vector<int> &id_vec){
+void Filter::switch_Pipe_true_false(GTS &Gts, std::vector<int> &id_vec){
     if (!id_vec.empty()){
         Console_func::Pipe_table();
-        for (auto  id : id_vec){
-            std::cout << pipes.at(id);
+        for (auto id : id_vec){
+            std::cout << Gts.pipes.at(id);
         }
         char menu_pointer2;
         Console_func::Edit_menu("pipes");
@@ -32,7 +32,7 @@ void Filter::switch_Pipe_true_false(std::unordered_map<int, Pipe> &pipes, const 
                 std::cout << "Choose which pipes you want in repair or not (if in repair push 'y', if not in repair push 'n': ";
                 verification::true_false(repair);
                 for(auto id : id_vec){
-                    pipes[id].repair_or_not = repair;
+                    Gts.pipes[id].repair_or_not = repair;
                 }
                 Console_func::return_to_menu();
                 break;
@@ -64,17 +64,12 @@ void Filter::switch_Pipe_true_false(std::unordered_map<int, Pipe> &pipes, const 
                 std::cout << std::endl <<"Choose which pipes you want in repair or not (if in repair push 'y', if not in repair push 'n': ";
                 verification::true_false(repair);
                 for(auto id : table_pos){
-                    pipes[id].repair_or_not = repair;
+                    Gts.pipes[id].repair_or_not = repair;
                 }
                 Console_func::return_to_menu();
                 break;
             }
             case '0': {
-                Console_func::Clear_console();
-                Console_func::Menu_out();
-                break;
-            }
-            default:{
                 break;
             }
         }
@@ -119,8 +114,6 @@ void Filter::Choose_Pipe_filter(const std::unordered_map<int, Pipe> &pipes, std:
             break;
         }
         case '0': {
-            Console_func::Clear_console();
-            Console_func::Menu_out();
             break;
         }
     }
@@ -158,18 +151,16 @@ void Filter::Choose_CS_filter(const std::unordered_map<int, CS> &cs, std::vector
             break;
         }
         case '0': {
-            Console_func::Clear_console();
-            Console_func::Menu_out();
             break;
         }
     }
 }
 
-void Filter::switch_CS_workshops(std::unordered_map<int, CS> &compressors, const std::vector<int> &id_vec) {
+void Filter::switch_CS_workshops(GTS &Gts, std::vector<int> &id_vec) {
     if (!id_vec.empty()) {
         Console_func::CS_table();
-        for (const auto &id: id_vec) {
-            std::cout << compressors.at(id);
+        for (auto id : id_vec){
+            std::cout << Gts.compressors.at(id);
         }
         char menu_pointer2;
         Console_func::Edit_menu("compressors");
@@ -177,7 +168,7 @@ void Filter::switch_CS_workshops(std::unordered_map<int, CS> &compressors, const
         switch (menu_pointer2) {
             case '1': {
                 for (const auto& cs_id : id_vec){
-                    compressors[cs_id].change_workshops();
+                    Gts.compressors[cs_id].change_workshops();
                 }
                 Console_func::return_to_menu();
                 break;
@@ -209,14 +200,8 @@ void Filter::switch_CS_workshops(std::unordered_map<int, CS> &compressors, const
                     std::cout << "Enter the serial number of the pipe in the table: ";
                 }
                 for (const auto& cs_id : table_pos){
-                    compressors[cs_id].change_workshops();
+                    Gts.compressors[cs_id].change_workshops();
                 }
-                Console_func::return_to_menu();
-                break;
-            }
-            case '0': {
-                Console_func::Clear_console();
-                Console_func::Menu_out();
                 break;
             }
             default: {

@@ -6,6 +6,7 @@
 #define LAB_VERIFICATION_H
 #pragma once
 #include <iostream>
+#include <vector>
 
 
 namespace verification{
@@ -24,6 +25,7 @@ namespace verification{
             }
         }
     }
+    bool choose_id(std::vector<int> &vec_id, int &id);
     void check_string(std::string &string_cin, int max_symbols);
     void true_false(bool &repair);
 }

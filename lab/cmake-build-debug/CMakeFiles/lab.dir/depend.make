@@ -4,6 +4,7 @@
 CMakeFiles/lab.dir/CS.cpp.o: \
  ../CS.cpp \
  ../CS.h \
+ ../GTS.h \
  ../Pipe.h \
  ../consolef.h \
  ../verification.h
@@ -11,23 +12,32 @@ CMakeFiles/lab.dir/Filter.cpp.o: \
  ../CS.h \
  ../Filter.cpp \
  ../Filter.h \
+ ../GTS.h \
  ../Pipe.h \
  ../consolef.h \
  ../verification.h
+CMakeFiles/lab.dir/GTS.cpp.o: \
+ ../CS.h \
+ ../GTS.cpp \
+ ../GTS.h \
+ ../Pipe.h
 CMakeFiles/lab.dir/Pipe.cpp.o: \
  ../CS.h \
+ ../GTS.h \
  ../Pipe.cpp \
  ../Pipe.h \
  ../consolef.h \
  ../verification.h
 CMakeFiles/lab.dir/consolef.cpp.o: \
  ../CS.h \
+ ../GTS.h \
  ../Pipe.h \
  ../consolef.cpp \
  ../consolef.h
 CMakeFiles/lab.dir/main.cpp.o: \
  ../CS.h \
  ../Filter.h \
+ ../GTS.h \
  ../Pipe.h \
  ../consolef.h \
  ../main.cpp \

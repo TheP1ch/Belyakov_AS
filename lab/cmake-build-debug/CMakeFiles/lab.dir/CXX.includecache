@@ -6,3 +6,37 @@
 
 #IncludeRegexTransform: 
 
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.h
+iostream
+-
+fstream
+-
+string
+-
+unordered_map
+-
+
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/GTS.cpp
+GTS.h
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/GTS.h
+
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/GTS.h
+unordered_map
+-
+Pipe.h
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.h
+CS.h
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.h
+vector
+-
+
+/Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.h
+string
+-
+fstream
+-
+iostream
+-
+unordered_map
+-
+

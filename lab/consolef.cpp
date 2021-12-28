@@ -13,6 +13,10 @@ void Console_func::Menu_out() {
             "7. Загрузить\n"
             "8. Удаление труб\n"
             "9. Удаление компрессорных станций\n"
+            "a. Добавление связи\n"
+            "b. Вывод связей\n"
+            "c. Удаление связей\n"
+            "d. Топологическая сортировка\n"
             "0. Выход\n";
 }
 
@@ -61,8 +65,6 @@ void Console_func::return_to_menu(){
     std::cin >> std::ws;
     while (true) {
         if (std::cin.get() == '1') {
-            Console_func::Clear_console();
-            Console_func::Menu_out();
             break;
         }else{
             Clear_console();
@@ -71,24 +73,33 @@ void Console_func::return_to_menu(){
     }
 }
 
-void Console_func::Out_to_File(std::unordered_map<int, Pipe> &pipes, std::unordered_map<int, CS> &compressors,std::string &File_name){
+void Console_func::Out_to_File(GTS &Gts,std::string &File_name){
     std::ofstream out;
-    out.open("/Users/evgenijbelakov/desktop/github2/Belyakov_AS/lab/data_file/" + File_name);
+    out.open("../data_file/" + File_name);
     if (!out.is_open()) {
         std::cout << "File didn't find ";
         Console_func::return_to_menu();
+        return;
     }
-    if (!pipes.empty()){
-        out << "Pipe" << std::endl << pipes.size() << std::endl;
-        for (const auto& [id,item] : pipes){
+    if (!Gts.pipes.empty()){
+        out << "Pipe" << std::endl << Gts.pipes.size() << std::endl;
+        for (const auto& [id,item] : Gts.pipes){
             out << item;
         }
     }
 
-    if (!compressors.empty()){
-        out << "CS" << std::endl << compressors.size() << std::endl;
-        for (const auto& item : compressors){
+    if (!Gts.compressors.empty()){
+        out << "CS" << std::endl << Gts.compressors.size() << std::endl;
+        for (const auto& item : Gts.compressors){
             out << item.second;
+        }
+    }
+    if (!Gts.Used_pipes.empty()){
+        out << "Links" << std::endl << Gts.Used_pipes.size() << std::endl;
+        for (const auto &item : Gts.Used_pipes){
+            out << item.second.cs_out << std::endl;
+            out << item.second.cs_in << std::endl;
+            out << item.first << std::endl;
         }
     }
     std::cout << "Data is upload to file" << std::endl;
@@ -105,7 +116,7 @@ void Console_func::Choise_table_point(char &pointer) {
     std::cin.ignore(10000, '\n');
 }
 
-void Console_func::In_from_file(std::unordered_map<int, Pipe> &pipes, std::unordered_map<int, CS> &compressors,std::string &File_name){
+void Console_func::In_from_file(GTS &Gts, std::string &File_name){
     std::ifstream in("/Users/evgenijbelakov/desktop/github2/Belyakov_AS/lab/data_file/" + File_name);
     if (!in.is_open()) {
         std::cout << "File didn't find" << std::endl;
@@ -119,29 +130,49 @@ void Console_func::In_from_file(std::unordered_map<int, Pipe> &pipes, std::unord
     std::string check;
     in >> check;
     if (check == "Pipe"){
-        Pipe::PIPE_Clear(pipes);
+        Pipe::PIPE_Clear(Gts.pipes);
         int count_pipe;
         in >> count_pipe;
         for (int i = 0; i < count_pipe; ++i){
             Pipe new_pipe;
             in >> new_pipe;
-            pipes.insert({new_pipe.get_id(), new_pipe});
+            Gts.pipes.insert({new_pipe.get_id(), new_pipe});
         }
         if(!in.eof()){
             in >> check;
         }
     }
     if (check == "CS"){
-        CS::CS_Clear(compressors);
+        CS::CS_Clear(Gts.compressors);
         int count_cs;
         in >> count_cs;
         for (int i = 0; i < count_cs; ++i){
             CS new_cs;
             in >> new_cs;
-            compressors.insert({new_cs.get_id(), new_cs});
+            Gts.compressors.insert({new_cs.get_id(), new_cs});
+        }
+        if(!in.eof()){
+            in >> check;
+        }
+    }
+    if (check == "Links"){
+        int count_links;
+        in >> count_links;
+        for (int i = 0; i < count_links; ++i){
+            int id_cs_in, id_cs_out, id_pipe_rib;
+            in >> id_cs_out;
+            in >> id_cs_in;
+            in >> id_pipe_rib;
+            Gts.add_link(id_cs_out, id_cs_in, id_pipe_rib);
         }
     }
     std::cout << "You download data from file" << std::endl;
     in.close();
     Console_func::return_to_menu();
+}
+
+void Console_func::Graph_table() {
+    std::cout << "Links info:" << std::endl;
+    std::cout << "CS_out id:" << std::setw(30) << "Cs_in id:" << std::setw(30) << "Pipe_rib_id:" <<
+              std::setw(30) << std::endl;
 }

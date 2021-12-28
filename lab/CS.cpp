@@ -28,6 +28,31 @@ int CS::get_id() const{
     return id;
 }
 
+int CS::get_degree_out() const{
+    return degree_out;
+}
+
+int CS::get_degree_in() const{
+    return degree_in;
+}
+
+void CS::decrease_degree_out(){
+    degree_out -= 1;
+}
+
+void CS::decrease_degree_in() {
+    degree_in -= 1;
+}
+
+void CS::increase_degree_in() {
+    degree_in += 1;
+}
+
+void CS::increase_degree_out() {
+    degree_out += 1;
+}
+
+
 void CS::change_workshops(){
     std::cout << "Your CS with id " << id << " has " << count_ready_workshops << " ready workshops" << std::endl;
     std::cout << "Enter the count of ready's workshops in range (0 - n) (n - is how many workshops you have):";

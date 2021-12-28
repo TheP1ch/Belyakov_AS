@@ -18,7 +18,7 @@ public:
     static int Max_ID;
     double length;
     std::string name;
-    int  diameter;
+    int  diameter, cs_in, cs_out;
     bool repair_or_not;
     int get_id() const;
     static void PIPE_Clear(std::unordered_map<int, Pipe> &pipes);

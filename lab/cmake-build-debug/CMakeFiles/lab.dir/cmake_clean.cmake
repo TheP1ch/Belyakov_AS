@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/lab.dir/CS.cpp.o"
   "CMakeFiles/lab.dir/Filter.cpp.o"
+  "CMakeFiles/lab.dir/GTS.cpp.o"
   "CMakeFiles/lab.dir/Pipe.cpp.o"
   "CMakeFiles/lab.dir/consolef.cpp.o"
   "CMakeFiles/lab.dir/main.cpp.o"

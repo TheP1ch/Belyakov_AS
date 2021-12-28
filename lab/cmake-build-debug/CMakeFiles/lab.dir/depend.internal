@@ -4,6 +4,7 @@
 CMakeFiles/lab.dir/CS.cpp.o
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.cpp
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.h
+ /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/GTS.h
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.h
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/consolef.h
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/verification.h
@@ -11,23 +12,32 @@ CMakeFiles/lab.dir/Filter.cpp.o
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.h
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Filter.cpp
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Filter.h
+ /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/GTS.h
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.h
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/consolef.h
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/verification.h
+CMakeFiles/lab.dir/GTS.cpp.o
+ /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.h
+ /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/GTS.cpp
+ /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/GTS.h
+ /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.h
 CMakeFiles/lab.dir/Pipe.cpp.o
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.h
+ /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/GTS.h
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.cpp
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.h
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/consolef.h
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/verification.h
 CMakeFiles/lab.dir/consolef.cpp.o
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.h
+ /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/GTS.h
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.h
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/consolef.cpp
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/consolef.h
 CMakeFiles/lab.dir/main.cpp.o
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/CS.h
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Filter.h
+ /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/GTS.h
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/Pipe.h
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/consolef.h
  /Users/evgenijbelakov/Desktop/GitHub2/Belyakov_AS/lab/main.cpp

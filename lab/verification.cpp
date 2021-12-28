@@ -43,3 +43,15 @@ void verification::true_false(bool &repair){
             std::cout << "You push the wrong button, please try again: ";
     }
 }
+
+bool verification::choose_id(std::vector<int> &vec_id, int &id) {
+        std::cin >> id;
+        for (const auto &item_id : vec_id){
+            if (item_id == id){
+                vec_id.erase(find(vec_id.begin(), vec_id.end(), item_id));
+                return false;
+            }
+        }
+        std::cout << "Choose the wrong id, re-choose: ";
+        return true;
+}

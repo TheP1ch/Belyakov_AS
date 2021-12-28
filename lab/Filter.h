@@ -35,7 +35,7 @@ namespace Filter{
         }
     }
 
-    void switch_Pipe_true_false(std::unordered_map<int, Pipe> &pipes, const std::vector<int> &id_vec);
+    void switch_Pipe_true_false(GTS &Gts, std::vector<int> &id_vec);
 
     template <typename T>
     void Delete_CS_OR_PIPE(std::unordered_map<int, T> &cs_or_pipe, const std::vector<int> &id_vec){
@@ -96,7 +96,7 @@ namespace Filter{
 
     void Choose_CS_filter(const std::unordered_map<int, CS> &cs, std::vector<int> &id_vec);
 
-    void switch_CS_workshops(std::unordered_map<int, CS> &compressors, const std::vector<int> &id_vec);
+    void switch_CS_workshops(GTS &Gts, std::vector<int> &id_vec);
 }
 
 #endif //LAB_FILTER_H
